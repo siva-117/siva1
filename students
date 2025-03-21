@@ -1,0 +1,67 @@
+package com.backend.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.backend.entity.students;
+import com.backend.repo.studentsrepo;
+
+@Service
+public class studentslist {
+@Autowired
+private studentsrepo repo;
+public List<students> getAllstudentslist(){
+	return repo.findAll();
+}
+}
+
+
+
+
+
+
+
+package com.backend.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.backend.entity.students;
+import com.backend.service.Studentslist;
+
+@RestController
+@CrossOrigin("*")
+public class Controller {
+	@Autowired
+	private studentslist service;
+		@GetMapping("/students")
+		public List<students> getstudents(){
+			return studentslist.getAllstudents();
+		}
+	
+}
+
+package com.backend.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.backend.entity.students;
+import com.backend.repo.studentsrepo;
+
+@Service
+public class studentslist {
+@Autowired
+private studentsrepo repo;
+public List<students> getAllstudentslist(){
+	return repo.findAll();
+}
+}
